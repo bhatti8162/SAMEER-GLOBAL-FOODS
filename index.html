@@ -4,37 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sameer Global Foods</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --sgf-green: #009245;
+      --sgf-blue: #0056A6;
+      --sgf-red: #E30613;
+      --sgf-white: #f9f9f9;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f8fbff;
-      color: #003366;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--sgf-white);
+      color: var(--sgf-blue);
+      line-height: 1.6;
     }
 
-    /* ===== HEADER ===== */
+    /* HEADER */
     header {
-      background: linear-gradient(90deg, #0077cc, #005fa3);
-      color: white;
-      padding: 20px;
+      background: white;
+      padding: 15px 20px;
       text-align: center;
-      /* border-bottom: 0.2px solid #ff4d4d; */
+      border-bottom: 2px solid var(--sgf-red);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
-    /* ===== NAVIGATION ===== */
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+
+    /* NAVIGATION */
     nav {
-      background-color: #005fa3;
+      background-color: var(--sgf-green);
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       padding: 10px 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
     nav a {
       color: white;
       margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       position: relative;
       transition: color 0.3s;
     }
@@ -46,109 +77,150 @@
       bottom: -4px;
       width: 0;
       height: 2px;
-      background-color: #ff4d4d;
+      background-color: var(--sgf-red);
       transition: width 0.3s;
     }
 
     nav a:hover {
-      color: #ff4d4d;
+      color: var(--sgf-red);
     }
 
     nav a:hover::after {
       width: 100%;
     }
 
-    /* ===== HERO ===== */
+    /* HERO SECTION */
     .hero {
-      padding: 60px 20px;
+      /* background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; */
+      background: url('./Product-Cover.jpg') center/cover no-repeat;
+      padding: 90px 20px;
       text-align: center;
-      background: linear-gradient(135deg, #e1f0ff 0%, #fff5f5 100%);
+      color: white;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1.2s ease;
     }
 
     .hero h2 {
       margin-top: 0;
-      font-size: 36px;
+      font-size: 2.5rem;
+      color: var(--sgf-green);
     }
 
     .hero p {
-      font-size: 18px;
+      font-size: 1.2rem;
       max-width: 600px;
       margin: auto;
+      color: var(--sgf-white);
     }
 
-    /* ===== SECTION ===== */
+    /* CONTENT SECTIONS */
     .section {
-      padding: 40px 20px;
+      padding: 60px 20px;
       text-align: center;
     }
 
     .section h2 {
+      color: var(--sgf-green);
       display: inline-block;
       padding-bottom: 5px;
-      border-bottom: 3px solid #ff4d4d;
+      border-bottom: 3px solid var(--sgf-red);
     }
 
-    /* ===== CARDS ===== */
+    /* CARDS */
     .cards {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 25px;
       margin-top: 30px;
     }
 
     .card {
       background-color: white;
       border-radius: 12px;
-      width: 250px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      border-top: 4px solid #ff4d4d;
+      width: 280px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-top: 4px solid var(--sgf-blue);
       transition: transform 0.3s, box-shadow 0.3s;
+      animation: fadeInUp 0.8s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 14px rgba(255,77,77,0.2);
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      border-top-color: var(--sgf-green);
     }
 
     .card h3 {
       margin-top: 0;
+      color: var(--sgf-blue);
     }
 
-    /* ===== BUTTONS ===== */
+    /* BUTTONS */
     .card button {
       margin-top: 15px;
       padding: 10px 20px;
-      background: linear-gradient(90deg, #0077cc, #005fa3);
+      background: linear-gradient(135deg, var(--sgf-red), #b5050f);
       color: white;
-      border: 2px solid #ff4d4d;
+      border: none;
       border-radius: 6px;
       cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
+      font-weight: bold;
+      transition: transform 0.2s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     .card button:hover {
-      background: linear-gradient(90deg, #ff4d4d, #cc0000);
       transform: scale(1.05);
     }
 
-    /* ===== FOOTER ===== */
+    /* FOOTER */
     footer {
-      background-color: #003366;
+      background-color: var(--sgf-blue);
       color: white;
       text-align: center;
       padding: 20px;
       margin-top: 40px;
-      border-top: 3px solid #ff4d4d;
+      border-top: 4px solid var(--sgf-green);
+      font-size: 0.9rem;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Sameer Global Foods</h1>
-    <p>Import | Export | Wholesale | Distribution</p>
+    <h1>
+      <b style="color: var(--sgf-green);">SAMEER </b> 
+      <b style="color: var(--sgf-blue);">GLOBAL</b> 
+      <b style="color: var(--sgf-red);">FOODS</b>
+    </h1>
+    <p style="color: var(--sgf-red);">Import | Export | Wholesale | Distribution</p>
   </header>
 
   <nav>
@@ -159,8 +231,10 @@
   </nav>
 
   <section class="hero">
-    <h2>Quality Food, Globally Delivered</h2>
-    <p>We import and export all kinds of food-related items including spices, vegetables, fruits, meat, and fish. We also wholesale and distribute locally.</p>
+    <div class="hero-content">
+      <h1>Quality Food, Globally Delivered</h1>
+      <p>We import and export all kinds of food-related items including spices, vegetables, fruits, meat, and fish. We also wholesale and distribute locally.</p>
+    </div>
   </section>
 
   <section class="section">
